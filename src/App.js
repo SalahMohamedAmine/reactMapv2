@@ -31,6 +31,9 @@ class App extends React.Component {
     setTimeout(() => {
       alert("lat" + position.coords.latitude+ " long" +  position.coords.longitude)
     })
+    let { CurrentPosition } = this.state;
+    CurrentPosition = { lat: position.coords.latitude, lng:  position.coords.longitude} 
+    this.setState({ CurrentPosition })
   }
 
   handleLocation = () => {
@@ -87,11 +90,13 @@ class App extends React.Component {
 
               
               {/* put simple marker in the map*/ }
+              { this.state.CurrentPosition.lat != null ? 
               <Marker position={[this.state.lat, this.state.lng]} icon = {myIcon}>
                 <Popup>
                   A pretty CSS3 popup. <br /> Easily customizable.
                 </Popup>
               </Marker>
+              :null}
 
             
               
