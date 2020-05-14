@@ -27,7 +27,10 @@ class App extends React.Component {
   refmarker = createRef()
   
   showPosition = (position) => {
-    console.log("latitude", position.coords.latitude, " longitude ", position.coords.longitude)
+    console.log("latitude", position.coords.latitude, " longitude ", position.coords.longitude);
+    setTimeout(() => {
+      alert("lat" + position.coords.latitude+ " long" +  position.coords.longitude)
+    })
   }
 
   handleLocation = () => {
@@ -40,6 +43,7 @@ class App extends React.Component {
   
   handleChangePosition = () => {
     navigator.geolocation.watchPosition(this.success);
+    navigator.geolocation.getCurrentPosition(this.showPosition);
   }
 
    success = (pos) => {
