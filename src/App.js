@@ -91,7 +91,7 @@ class App extends React.Component {
               
               {/* put simple marker in the map*/ }
               { this.state.CurrentPosition.lat != null ? 
-              <Marker position={[this.state.lat, this.state.lng]} icon = {myIcon}>
+              <Marker position={[this.state.CurrentPosition.lat, this.state.CurrentPosition.lng]} icon = {myIcon}>
                 <Popup>
                   A pretty CSS3 popup. <br /> Easily customizable.
                 </Popup>
